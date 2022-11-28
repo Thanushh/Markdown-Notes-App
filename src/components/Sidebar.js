@@ -14,8 +14,6 @@ export default function Sidebar(props) {
                 <button 
                     className="delete-btn"
                     onClick={(event) => props.deleteNote(event, note.id)}
-                    //when ever there is a need for a second parameter using event
-                    // there will be a whole callback funtion as seen above onClick
                 >
                     <i className="gg-trash trash-icon"></i>
                 </button>

@@ -1,7 +1,6 @@
 import React from "react"
 import Sidebar from "./components/Sidebar"
 import Editor from "./components/Editor"
-import { data } from "./data"
 import Split from "react-split"
 import {nanoid} from "nanoid"
 import "./App.css"
@@ -29,7 +28,6 @@ export default function App() {
     }
     
     function updateNote(text) {
-        // Put the most recently-modified note at the top
         setNotes(oldNotes => {
             const newArray = []
             for(let i = 0; i < oldNotes.length; i++) {
@@ -42,23 +40,12 @@ export default function App() {
             }
             return newArray
         })
-
-         /*  This does not rearrange the notes */
-        // setNotes(oldNotes => oldNotes.map(oldNote => {
-        //     return oldNote.id === currentNoteId
-        //         ? { ...oldNote, body: text }
-        //         : oldNote
-        // }))
     }
 
     function deleteNote(event, noteId) {
         event.stopPropagation()
         setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId))
     }
-
-    //checks whtr the clicked note id is equal to the current note id...if its equal
-     //   it deletes...... if the id is not equal it continues to exist in the new array 
-     //   creaeted by filter()
     
     function findCurrentNote() {
         return notes.find(note => {
